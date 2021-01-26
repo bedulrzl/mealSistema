@@ -42,11 +42,16 @@ class APIClient {
                 switch response.result {
                 case .success(let value):
                     let decoder = JSONDecoder()
-                    let model = try? decoder.decode(T.self, from: value)
-                    if let model = model {
-                        completion(.success(model))
-                        print(model)
-                    }
+                    do {
+                        let model = try? decoder.decode(T.self, from: value)
+                        if let model = model {
+                            completion(.success(model))
+                            print(model)
+                        }
+                        
+                    } catch {
+                        print(error.localizedDescription)
+                }
                 case .failure(let error):
                     print("\(#line), \(#function), \(error.failureReason)")
                     completion(.failure(error))

@@ -12,7 +12,7 @@ class MealViewModel: BaseViewModel {
     
     var manager: APIClient = APIClient.shared
     var changeHandler: ((BaseViewModelChange) -> Void)?
-    var didSelectedMeal: ((_ id: Int) -> Void)?
+    var didSelectedMeal: ((_ idMeal: String) -> Void)?
     var responseHandler: ((Swift.Result<MealResponse, Error>) -> Void)!
     var meals: [Meal] = [] {
         didSet {
@@ -34,6 +34,10 @@ class MealViewModel: BaseViewModel {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func processShowDetail(indexpath: IndexPath) {
+        self.didSelectedMeal?(meals[indexpath.row].idMeal)
     }
     
     func processGetMeals() {

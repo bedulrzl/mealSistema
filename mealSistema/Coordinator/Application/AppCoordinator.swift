@@ -18,15 +18,15 @@ class AppCoordinator: Coordinator {
         let viewModel = MealViewModel()
         viewController.coordinator = self
         viewController.viewModel = viewModel
-//        viewModel.didSelectedGenre = { id in
-//            self.startDiscover(with: id)
-//        }
+        viewModel.didSelectedMeal = { idMeal in
+            self.startDetail(with: idMeal)
+        }
         navigationController.pushViewController(viewController, animated: true)
     }
 }
-//extension AppCoordinator {
-//    func startDiscover(with id: Int) {
-//        let discoverCoordinator = DiscoverCoordinator(navigationController: navigationController, id: id)
-//        discoverCoordinator.start()
-//    }
-//}
+extension AppCoordinator {
+    func startDetail(with idMeal: String) {
+        let detailCoordinator = DetailCoordinator(navigationController: navigationController, idMeal: idMeal)
+        detailCoordinator.start()
+    }
+}

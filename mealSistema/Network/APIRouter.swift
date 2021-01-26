@@ -11,7 +11,7 @@ import Alamofire
 enum APIRouter: APIConfiguration {
     
     case meal(mealPage: String)
-    case mealDetail(genreId: Int)
+    case mealDetail(genreId: String)
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
@@ -27,7 +27,7 @@ enum APIRouter: APIConfiguration {
         case .meal(let page):
             return.url(["c": page])
         case .mealDetail(let id):
-            return.url(["i": String(id)])
+            return.url(["i": id])
         }
     }
     
