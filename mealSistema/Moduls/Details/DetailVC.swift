@@ -77,7 +77,7 @@ extension DetailVC: UITableViewDataSource, UITableViewDelegate {
             
             return cell
         case 1:
-//            let headerCell = UITableViewCell()
+
             let cell = tableView.dequeueReusableCell(with: HeaderCell.self, for: indexPath)
             if let detail = viewModel?.details {
                 cell.bind(with: detail)
@@ -85,7 +85,7 @@ extension DetailVC: UITableViewDataSource, UITableViewDelegate {
         
             return cell
         default:
-//            let cellIng = UITableViewCell()
+
             let cell = tableView.dequeueReusableCell(with: ingreCell.self, for: indexPath)
             if let ingre = viewModel?.detailIngedients[indexPath.row] {
                 cell.bind(with: ingre)

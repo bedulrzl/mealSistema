@@ -66,12 +66,4 @@ class DetailViewModel: BaseViewModel {
         self.manager.request(route: .mealDetail(genreId: idMeal), completion: responHandler)
     }
 }
-//NGARTI ORA SON
-//ora
-//apanya
-//Jadi dia nge filter
-//dia cek key nya dulu
-//dia punya kata2 "strIngredient" itu ga
-//kalo ada dia cek lagi, value nya kosong ga
-//makanya yg kosong tuh dari 16 - 20 kan ga masuk
-//nah next lu ambil values nya aja
+
